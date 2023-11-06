@@ -1,0 +1,44 @@
+
+
+.resume_form {
+    width: 1200px;
+    margin-left: 30px;
+    font-size: 14px;
+    }
+    
+    .resume_form h3{
+        text-align: left; border-bottom: 1px solid black; font-size: 28px ;
+        padding-bottom: 20px;
+    }
+
+    .resume_form h4{
+        text-align: left; border-bottom: 1px solid #bdbdbd; font-size: 18px ;
+        padding-bottom: 20px;
+    }
+
+    .resume_form select{ width: 200px; border-radius: 5px; font-size: 14px; height: 30px; margin-top: 22px;}
+
+    .resume_form input { height: 30px; font-size: 14px; border-radius: 5px;}
+
+    .resume_form .r_career_option { height: 14px;border-radius: 5px;}
+
+    .resume_form .r_career_date { height: 14px;border-radius: 5px;}
+
+    .r_title {
+        width: 80%; height: 40px;
+    }
+    
+    .r_edu_wrap {
+        width: 50%; display: flex; flex-wrap: nowrap; justify-content: flex-start;
+    }
+
+    .r_edu_wrap h4 {border-bottom: none; margin-right: 30px;}
+
+    .r_des { width: 95%; height: 300px; font-size: 14px; border-radius: 5px; margin-bottom: 20px;}
+
+    .button_wrap {border-top: 1px solid #000; padding-top: 20px; margin-top: 10px;display: flex; justify-content: center;}
+    .button{ margin-left: 20px; width: 200px; height: 100px; border: none; font-size: 18px;}
+    .button:hover {cursor: pointer;}  
+    .button_wrap :nth-child(1) {background-color: orangered; color: white;}
+    .button_wrap :nth-child(2) {background-color:  ivory; color: black;}
+

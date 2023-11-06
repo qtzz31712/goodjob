@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+ul li{list-style: none;}
+
+#footer_wrap{
+width: 100%; margin-bottom: 20px;}
+
+.footer_menu { text-align: center;
+display:  flex; justify-content: space-between; border-bottom: 1px solid #e8e8e8 ;  white-space: nowrap;
+border-top: 1px solid #e8e8e8 ; font-size: 16px; padding: 0 50px;
+}
+
+.footer_menu > li  {margin: 15px 5px;}
+
+.footer_menu > li a span {font-weight: 750;}
+
+#footer_wrap a {
+    text-decoration: none; color: 171717;
+}
+
+
+.com_info {white-space: nowrap;}
+.com_name{font-size: 14px; color: #171717; font-weight: 450;}
+.com_detail{font-size: 13px; color: #6A6A6A;}
+.com_detail  a { color: #6A6A6A; border-bottom: 0.5px solid #6A6A6A ;}

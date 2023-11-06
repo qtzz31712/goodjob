@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+   
+<mapper namespace="mapper.notice">
+	<resultMap id="noticeResult" type="noticeVo">
+        <result property="n_no" column="n_no" />
+        <result property="n_title" column="n_title" />
+        <result property="n_date" column="n_date" />
+        <result property="n_article" column="n_article" />
+      
+	</resultMap> 
+	
+	<select id="selectNoticeNo" resultMap="noticeResult">
+      <![CDATA[
+         SELECT * FROM tbl_notice where n_no 	 	
+      ]]>
+	</select>
+	 
+
+	<insert id="insertIntoNotice"  parameterType="noticeVo">
+		INSERT INTO tbl_notice (n_title, n_date, n_article)
+		VALUES (#{n_title}, now(), #{n_article})
+	</insert>
+	 
+	 
+	<select id="selectAllList" resultMap="noticeResult">
+      <![CDATA[
+         SELECT * FROM tbl_notice ORDER BY n_no ASC	 	
+      ]]>
+	</select>
+	 
+	
+	<!--  <![CDATA[
+	
+		
+	
+	 ]]> -->
+	 
+	 
+	<update id="updateNotice" parameterType="noticeVo">
+	<![CDATA[
+	
+	 UPDATE tbl_notice SET n_title = #{n_title}, n_article = #{n_article}, n_date = now() WHERE n_no = #{n_no}
+	
+	 ]]>
+	
+	</update>
+	 
+	 
+	 <!-- 
+	<delete id="deleteAsk" parameterType="askVo">
+	<![CDATA[
+		DELETE FROM tbl_ask WHERE a_no = #{a_no}
+	]]>
+	
+	</delete>
+		 -->
+</mapper>

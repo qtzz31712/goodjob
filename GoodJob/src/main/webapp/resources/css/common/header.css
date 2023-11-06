@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+
+
+
+ul li {list-style: none;}
+
+
+
+#header_wrap {width: 100%; display: flex; justify-content: space-between; white-space: nowrap;
+padding: 0; margin-bottom: 5px;}
+.logo > a > img {width: 250px;height: 120px;padding-top: 0;}
+
+.checklogin > ul {width: 30%; display: flex; justify-content: right;}
+
+.checklogin > ul > li > a { text-decoration: none; color:gray; margin-left: 15px; padding: 0;;}
+
+.logo > a { text-decoration: none; color: black; font-size: 18px;}

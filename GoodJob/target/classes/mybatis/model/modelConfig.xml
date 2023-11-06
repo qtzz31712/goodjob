@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="team.pj.goodjob.user.member.UserMemberVo"  alias="userMemberVo" />
+		<typeAlias type="team.pj.goodjob.com.member.ComMemberVo"  alias="comMemberVo" />
+		<typeAlias type="team.pj.goodjob.admin.notice.NoticeVo"  alias="noticeVo" />
+		<typeAlias type="team.pj.goodjob.admin.ask.AskVo"  alias="askVo" />
+		<typeAlias type="team.pj.goodjob.job.JobVo"  alias="jobVo" />
+		
+	</typeAliases>
+</configuration>
