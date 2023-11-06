@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,60 +19,25 @@ public class ResumeDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	SqlSession sqlSession;
 
 	public int insertNewResume(ResumeVo resumeVo) {
 		int result = 0;
 
-		String sql = "INSERT INTO tbl_resume(";
-		sql += " r_title, ";
-		sql += " r_edu, ";
-		sql += " r_career, ";
-		sql += " r_career_date, ";
-		sql += " r_mod_date, ";
-		sql += " r_hope_loc, ";
-		sql += " r_hope_sct, ";
-		sql += " r_hope_hrd, ";
-		sql += " r_hope_prd, ";
-		sql += " r_hope_day, ";
-		sql += " r_hope_time, ";
-		sql += " r_hope_pay, ";
-		sql += " r_des, ";
-		sql += " r_u_no) ";
-		sql += " VALUES(?, ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-		try {
-			result = jdbcTemplate.update(sql, resumeVo.getR_title(), resumeVo.getR_edu(), resumeVo.getR_career(),
-					resumeVo.getR_career_date(), resumeVo.getR_hope_loc(), resumeVo.getR_hope_sct(),
-					resumeVo.getR_hope_hrd(), resumeVo.getR_hope_prd(), resumeVo.getR_hope_day(),
-					resumeVo.getR_hope_time(), resumeVo.getR_hope_pay(), resumeVo.getR_des(), resumeVo.getR_u_no()
-
-			);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	result =sqlSession.insert("mapper.resume.insertNewResume", resumeVo);
 		return result;
 	}
 
 	public List<ResumeVo> selectAllList() {
-		String sql = "SELECT * FROM tbl_resume ";
 		List<ResumeVo> resumes = new ArrayList<ResumeVo>();
-
-		try {
-
-			RowMapper<ResumeVo> rowMapper = BeanPropertyRowMapper.newInstance(ResumeVo.class);
-			resumes = jdbcTemplate.query(sql, rowMapper);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
+	resumes = sqlSession.selectList("mapper.resume.selectAllList");
 		return resumes.size() > 0 ? resumes : null;
 
 	}
 
 	public int updateResume(ResumeVo resumeVo) {
-		System.out.println(resumeVo.getR_u_no() + "뭔데이거 몇인데");
 		String sql = "UPDATE tbl_resume SET " + "r_title = ?, " + "r_edu = ?, " + "r_career = ?, "
 				+ "r_career_date = ?, " + "r_hope_loc = ?, " + "r_hope_sct = ?, " + "r_hope_hrd = ?, "
 				+ "r_hope_prd = ?, " + "r_hope_day = ?, " + "r_hope_time = ?, " + "r_hope_pay = ?, " + "r_des = ? "
