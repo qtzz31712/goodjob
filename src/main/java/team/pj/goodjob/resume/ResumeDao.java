@@ -44,9 +44,9 @@ public class ResumeDao {
 		return result;
 	}
 
-	public List<ResumeVo> selectList(String r_u_no) {
+	public List<ResumeVo> selectList(int r_u_no) {
 		List<ResumeVo> resumes = new ArrayList<ResumeVo>();
-		resumes = sqlSession.selectList("mapper.resume.updateResume", r_u_no);
+		resumes = sqlSession.selectList("mapper.resume.selectList", r_u_no);
 		return resumes.size() > 0 ? resumes : null;
 	}
 

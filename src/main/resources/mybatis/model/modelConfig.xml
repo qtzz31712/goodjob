@@ -9,7 +9,7 @@
 		<typeAlias type="team.pj.goodjob.admin.notice.NoticeVo"  alias="noticeVo" />
 		<typeAlias type="team.pj.goodjob.admin.ask.AskVo"  alias="askVo" />
 		<typeAlias type="team.pj.goodjob.job.JobVo"  alias="jobVo" />
-		<typeAlias type="team.pj.goodjob.job.ResumeVo" alias="resumeVo"/>
+		<typeAlias type="team.pj.goodjob.resume.ResumeVo" alias="resumeVo"/>
 		
 	</typeAliases>
 </configuration>

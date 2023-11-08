@@ -18,7 +18,7 @@ public class ResumeService {
 	JavaMailSenderImpl javaMailSenderImpl;
 	
 	public ResumeVo createResumeConfirm(ResumeVo resumeVo) {
-		 int resgistResumeVo = resumeDao.insertNewResume(resumeVo);
+		 int registResumeVo = resumeDao.insertNewResume(resumeVo);
 		return resumeVo;
 	}
 	
@@ -34,7 +34,7 @@ public class ResumeService {
 //		resumeDao.deleteResume(r_no);
 //	}
 	
-	public List<ResumeVo> listupResume(String r_u_no){
+	public List<ResumeVo> listupResume(int r_u_no){
 		return resumeDao.selectList(r_u_no);
 		
 	}

@@ -26,14 +26,15 @@
 	<insert id="insertNewResume" parameterType="resumeVo">
 		INSERT INTO
 		tbl_resume ( r_title, r_edu, r_career, r_career_date, r_mod_date,
-		r_hope_loc,
-		r_hope_sct, r_hope_prd, r_hope_day, r_hope_time,
-		r_hope_pay, r_des,
-		r_u_no)
-		VALUES ( #{r_title}, #{r_edu}, #{r_career},
+		r_hope_loc, r_hope_sct, r_hope_hrd, r_hope_prd, r_hope_day,
+		r_hope_time, r_hope_pay, r_des, r_u_no)
+		VALUES ( #{r_title}, #{r_edu},
+		#{r_career},
 		#{r_career_date}, NOW(), #{r_hope_loc},
-		#{r_hope_sct}, #{r_hope_prd},
-		#{r_hope_day}, #{r_hope_time}, #{r_hope_pay}, #{r_des},
+		#{r_hope_sct},
+		#{r_hope_hrd}, #{r_hope_prd},
+		#{r_hope_day}, #{r_hope_time},
+		#{r_hope_pay}, #{r_des},
 		#{r_u_no})
 	</insert>
 
@@ -44,25 +45,32 @@
 
 	<update id="updateResume" parameterType="resumeVo">
 		UPDATE tbl_resume SET
-		r_title=#{r_title}, r_edu=#{r_edu}, r_career=#{r_career}, r_career_date=#{r_career_date}, r_mod_date=now(),
-		r_hope_loc=#{r_hope_loc}, r_hope_sct=#{r_hope_sct}, r_hope_hrd=#{r_hope_hrd}, r_hope_prd=#{r_hope_prd}, r_hope_day=#{r_hope_day},
-		r_hope_time=#{r_hope_time}, r_hope_pay=#{r_hope_pay}, r_des=#{r_des}
+		r_title=#{r_title}, r_edu=#{r_edu}, r_career=#{r_career},
+		r_career_date=#{r_career_date}, r_mod_date=now(),
+		r_hope_loc=#{r_hope_loc}, r_hope_sct=#{r_hope_sct},
+		r_hope_hrd=#{r_hope_hrd}, r_hope_prd=#{r_hope_prd},
+		r_hope_day=#{r_hope_day},
+		r_hope_time=#{r_hope_time},
+		r_hope_pay=#{r_hope_pay}, r_des=#{r_des}
 	</update>
-	
-	<select id="selectList">
-	SELECT * FROM tbl_resuem WHERE r_u_no = #{r_u_no}
+
+	<select id="selectList" parameterType="int"
+		resultMap="resumeResult">
+		SELECT * FROM tbl_resume WHERE r_u_no = #{r_u_no}
 	</select>
-	
-	<select id="selectDetail">
-	SELECT * FROM tbl_resume WHERE r_u_no = #{r_u_no}
+
+	<select id="selectDetail" parameterType="int"
+		resultMap="resumeResult">
+		SELECT * FROM tbl_resume WHERE r_u_no = #{r_u_no}
 	</select>
-	
-	<select id="selectResume">
-	SELECT * FROM tbl_resume WHERE r_no=#{r_no}
+
+	<select id="selectResume" parameterType="int"
+		resultMap="resumeResult">
+		SELECT * FROM tbl_resume WHERE r_no=#{r_no}
 	</select>
-	
-	<delete id="deleteResume">
-	DELETE FROM tbl_resume WHERE r_no=#{r_no}
+
+	<delete id="deleteResume" parameterType="int">
+		DELETE FROM tbl_resume WHERE r_no=#{r_no}
 	</delete>
 
 </mapper> 

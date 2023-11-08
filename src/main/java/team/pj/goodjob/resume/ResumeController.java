@@ -53,7 +53,7 @@ public class ResumeController {
 		
 	// 개인이 로그인한뒤 나의 이력서 리스트보기
 	@RequestMapping(value = "/user/listupResume/{r_u_no}", method = { RequestMethod.POST, RequestMethod.GET })
-	public String alistupResume(@PathVariable("r_u_no") String r_u_no, Model model) {
+	public String alistupResume(@PathVariable("r_u_no") int r_u_no, Model model) {
 		System.out.print("run"+ r_u_no);
 		List<ResumeVo> resumeVos = resumeService.listupResume(r_u_no);
 		model.addAttribute("resumeVos", resumeVos);
@@ -61,7 +61,7 @@ public class ResumeController {
 	}
 
 	@RequestMapping(value = "/resume_list_ajax", method = { RequestMethod.POST, RequestMethod.GET })
-	public String listupResume_form(@RequestParam("r_u_no") String r_u_no, Model model) {
+	public String listupResume_form(@RequestParam("r_u_no") int r_u_no, Model model) {
 		model.addAttribute("r_u_no", r_u_no);
 		return "user/resume/resume_list_ajax";
 	}
