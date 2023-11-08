@@ -44,8 +44,18 @@
 
 	<update id="updateResume" parameterType="resumeVo">
 		UPDATE tbl_resume SET
-		r_title=#{r_title}, r_edu=#{r_edu}, r_career=#{r_career}, r_career_date=#{r_career_date}
+		r_title=#{r_title}, r_edu=#{r_edu}, r_career=#{r_career}, r_career_date=#{r_career_date}, r_mod_date=now(),
+		r_hope_loc=#{r_hope_loc}, r_hope_sct=#{r_hope_sct}, r_hope_hrd=#{r_hope_hrd}, r_hope_prd=#{r_hope_prd}, r_hope_day=#{r_hope_day},
+		r_hope_time=#{r_hope_time}, r_hope_pay=#{r_hope_pay}, r_des=#{r_des}
 	</update>
+	
+	<select id="selectList">
+	SELECT * FROM tbl_resuem WHERE r_u_no = ?
+	</select>
+	
+	<select id="selectDetail">
+	SELECT * FROM tbl_resume WHERE r_u_no = ?
+	</select>
 
 
 

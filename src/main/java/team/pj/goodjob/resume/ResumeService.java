@@ -44,7 +44,7 @@ public class ResumeService {
 	
 	
 	public ResumeVo getRegistResumeVo(int r_no) {
-		return resumeDao.selecResume(r_no);
+		return resumeDao.selectResume(r_no);
 	}
 	
 	public int deleteResumeConfirm(int r_no) {

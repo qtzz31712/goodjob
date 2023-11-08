@@ -19,82 +19,45 @@ public class ResumeDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	@Autowired
 	SqlSession sqlSession;
 
 	public int insertNewResume(ResumeVo resumeVo) {
 		int result = 0;
 
-	result =sqlSession.insert("mapper.resume.insertNewResume", resumeVo);
+		result = sqlSession.insert("mapper.resume.insertNewResume", resumeVo);
 		return result;
 	}
 
 	public List<ResumeVo> selectAllList() {
 		List<ResumeVo> resumes = new ArrayList<ResumeVo>();
-	resumes = sqlSession.selectList("mapper.resume.selectAllList");
+		resumes = sqlSession.selectList("mapper.resume.selectAllList");
 		return resumes.size() > 0 ? resumes : null;
 
 	}
 
 	public int updateResume(ResumeVo resumeVo) {
-		String sql = "UPDATE tbl_resume SET " + "r_title = ?, " + "r_edu = ?, " + "r_career = ?, "
-				+ "r_career_date = ?, " + "r_hope_loc = ?, " + "r_hope_sct = ?, " + "r_hope_hrd = ?, "
-				+ "r_hope_prd = ?, " + "r_hope_day = ?, " + "r_hope_time = ?, " + "r_hope_pay = ?, " + "r_des = ? "
-				+ "WHERE r_no = ? ";
 
 		int result = -1;
-
-		try {
-			result = jdbcTemplate.update(sql, resumeVo.getR_title(), resumeVo.getR_edu(), resumeVo.getR_career(),
-					resumeVo.getR_career_date(), resumeVo.getR_hope_loc(), resumeVo.getR_hope_sct(),
-					resumeVo.getR_hope_hrd(), resumeVo.getR_hope_prd(), resumeVo.getR_hope_day(),
-					resumeVo.getR_hope_time(), resumeVo.getR_hope_pay(), resumeVo.getR_des(), resumeVo.getR_no());
-
-			System.out.println("°ªÀº?" + result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		result = sqlSession.update("mapper.resume.updateResume", resumeVo);
 		return result;
-
 	}
 
 	public List<ResumeVo> selectList(String r_u_no) {
-		String sql = "SELECT * FROM tbl_resume WHERE r_u_no = ? ";
 		List<ResumeVo> resumes = new ArrayList<ResumeVo>();
-
-		try {
-
-			RowMapper<ResumeVo> rowMapper = BeanPropertyRowMapper.newInstance(ResumeVo.class);
-			resumes = jdbcTemplate.query(sql, rowMapper, r_u_no);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
+		resumes = sqlSession.selectList("mapper.resume.updateResume", r_u_no);
 		return resumes.size() > 0 ? resumes : null;
-
 	}
 
 	public ResumeVo selectDetail(int r_u_no) {
-		String sql = "SELECT * FROM tbl_resume WHERE r_u_no = ?";
 		List<ResumeVo> resumeVos = new ArrayList<ResumeVo>();
-
-		try {
-			RowMapper<ResumeVo> rowMapper = BeanPropertyRowMapper.newInstance(ResumeVo.class);
-			resumeVos = jdbcTemplate.query(sql, rowMapper, r_u_no);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
+		resumeVos = sqlSession.selectList("mapper.resume.selectDetail", r_u_no);
 		return resumeVos.size() > 0 ? resumeVos.get(0) : null;
 
 	}
 
-	public ResumeVo selecResume(int r_no) {
+	public ResumeVo selectResume(int r_no) {
 		String sql = "SELECT * FROM tbl_resume " + "WHERE r_no = ?";
 		List<ResumeVo> resumeVos = new ArrayList<ResumeVo>();
 
@@ -133,7 +96,7 @@ public class ResumeDao {
 
 		return resumeVos.size() > 0 ? resumeVos.get(0) : null;
 	}
-	
+
 	public int deleteResume(int r_no) {
 		String sql = "DELETE FROM tbl_resume " + "WHERE r_no = ?";
 		int result = -1;
