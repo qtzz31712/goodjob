@@ -5,54 +5,118 @@
 
 <mapper namespace="mapper.job">
 	<resultMap id="jobResult" type="jobVo">
-        <result property="rec_no" column="rec_no" />   
-        <result property="rec_title" column="rec_title" />
-        <result property="rec_due" column="rec_due" />
-        <result property="rec_num" column="rec_num" />
-        <result property="rec_edu" column="rec_edu" />
-        <result property="rec_age" column="rec_age" />
-        <result property="rec_gender" column="rec_gender" />
-        <result property="rec_loc" column="rec_loc" />
-        <result property="rec_pay" column="rec_pay" />
-        <result property="rec_prd" column="rec_prd" />
-        <result property="rec_day" column="rec_day" />
-        <result property="rec_time" column="rec_time" />
-        <result property="rec_sct" column="rec_sct" />
-        <result property="rec_hrd" column="rec_hrd" />
-        <result property="rec_bnf" column="rec_bnf" />
-        <result property="rec_c_no" column="rec_c_no" />
-        <result property="rec_approval" column="rec_approval" />
-        
-          
-	</resultMap> 
+		<result property="rec_no" column="rec_no" />
+		<result property="rec_title" column="rec_title" />
+		<result property="rec_due" column="rec_due" />
+		<result property="rec_num" column="rec_num" />
+		<result property="rec_edu" column="rec_edu" />
+		<result property="rec_age" column="rec_age" />
+		<result property="rec_gender" column="rec_gender" />
+		<result property="rec_loc" column="rec_loc" />
+		<result property="rec_pay" column="rec_pay" />
+		<result property="rec_prd" column="rec_prd" />
+		<result property="rec_day" column="rec_day" />
+		<result property="rec_time" column="rec_time" />
+		<result property="rec_sct" column="rec_sct" />
+		<result property="rec_hrd" column="rec_hrd" />
+		<result property="rec_bnf" column="rec_bnf" />
+		<result property="rec_c_no" column="rec_c_no" />
+		<result property="rec_approval" column="rec_approval" />
+
+
+	</resultMap>
+	<insert id="createJobForm" parameterType="jobVo">
+		INSERT INTO tbl_job(
+		rec_title, rec_due, rec_num, rec_edu, rec_age, rec_gender,
+		rec_loc,
+		rec_pay, rec_prd, rec_day, rec_time, rec_sct, rec_hrd,
+		rec_bnf,
+		rec_c_no
+		)
+		VALUES (
+		#{rec_title}, #{rec_due}, #{rec_num}, #{rec_edu},
+		#{rec_age}, #{rec_gender}, #{rec_loc}, #{rec_pay},
+		#{rec_prd},
+		#{rec_day}, #{rec_time}, #{rec_sct},
+		#{rec_hrd}, #{rec_bnf},
+		#{rec_c_no}
+		)
+	</insert>
+
+	<update id="updateJobAccount" parameterType="jobVo">
+		UPDATE tbl_job
+		SET
+		rec_title = #{rec_title},
+		rec_due = #{rec_due},
+		rec_num = #{rec_num},
+		rec_edu = #{rec_edu},
+		rec_age = #{rec_age},
+		rec_gender = #{rec_gender},
+		rec_loc = #{rec_loc},
+		rec_pay = #{rec_pay},
+		rec_prd = #{rec_prd},
+		rec_day = #{rec_day},
+		rec_time = #{rec_time},
+		rec_sct = #{rec_sct},
+		rec_hrd = #{rec_hrd},
+		rec_bnf = #{rec_bnf}
+		WHERE rec_no = #{rec_no}
+	</update>
 	
-	<select id="selectAllJob" resultMap="jobResult" parameterType="jobVo">
-      
-         SELECT * FROM tbl_job
-         ORDER BY rec_no DESC
-     
+	<delete id="deleteJob" parameterType="int">
+	DELETE FROM tbl_job
+	WHERE rec_no =#{rec_no}
+	</delete>
+
+
+	<select id="selectAllJob" resultMap="jobResult"
+		parameterType="jobVo">
+		SELECT * FROM tbl_job
+		ORDER BY rec_no DESC
 	</select>
 	
-	<select id="selectRecentJob" resultMap="jobResult" parameterType="jobVo">
-      
-         SELECT * FROM tbl_job
-         ORDER BY rec_no DESC
-         LIMIT 15
-     
+	<select id="selectDetail" resultMap="jobResult" parameterType="int">
+	SELECT * FROM tbl_job
+	WHERE rec_no=#{rec_no}
+	</select>
+
+	<select id="selectRecentJob" resultMap="jobResult"
+		parameterType="jobVo">
+
+		SELECT * FROM tbl_job
+		ORDER BY rec_no DESC
+		LIMIT 15
+
 	</select>
 	
-	<select id="selectFilteredJob" resultMap="jobResult" parameterType="jobVo">
-      
-         SELECT * FROM tbl_job
-         
-         <if test="rec_title != null">
-         	WHERE rec_title LIKE CONCAT('%', #{rec_title}, '%')
-         	 or rec_loc LIKE CONCAT('%', #{rec_title}, '%')
-         </if>
-         
-         ORDER BY rec_no DESC
-         
-     
-	</select>
+	<update id="finishJob" parameterType="int">
+	UPDATE tbl_job SET
+	rec_approval=1, rec_due="마감"
+	WHERE rec_no = #{rec_no}
+	</update>
 	
+	<select id="selectList" parameterType="String" resultMap="jobResult">
+	SELECT * FROM tbl_job
+	WHERE rec_c_no = #{rec_c_no}
+	</select>
+
+	<select id="selectFilteredJob" resultMap="jobResult"
+		parameterType="jobVo">
+
+		SELECT * FROM tbl_job
+
+		<if test="rec_title != null">
+			WHERE rec_title LIKE CONCAT('%', #{rec_title}, '%')
+			or
+			rec_loc LIKE CONCAT('%', #{rec_title}, '%')
+		</if>
+
+		ORDER BY rec_no DESC
+	</select>
+
+	<select id="selectCom" resultMap="jobResult" parameterType="int">
+		SELECT * FROM tbl_job
+		WHERE rec_no = #{rec_no}
+	</select>
+
 </mapper>

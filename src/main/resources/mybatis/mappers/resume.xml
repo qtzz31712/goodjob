@@ -52,6 +52,7 @@
 		r_hope_day=#{r_hope_day},
 		r_hope_time=#{r_hope_time},
 		r_hope_pay=#{r_hope_pay}, r_des=#{r_des}
+		WHERE r_no = #{r_no}
 	</update>
 
 	<select id="selectList" parameterType="int"
@@ -70,7 +71,8 @@
 	</select>
 
 	<delete id="deleteResume" parameterType="int">
-		DELETE FROM tbl_resume WHERE r_no=#{r_no}
+		DELETE FROM tbl_resume 
+		WHERE r_no=#{r_no}
 	</delete>
 
 </mapper> 

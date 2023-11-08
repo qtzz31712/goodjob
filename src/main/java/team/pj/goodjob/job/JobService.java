@@ -41,7 +41,7 @@ public class JobService {
 
 	public List<JobVo> getAllList() {
 	
-		return jobDao.selectAllList();
+		return jobDao.selectAllJob();
 	}
 
 	
@@ -60,7 +60,7 @@ public class JobService {
 	}
 	
 	public int deleteJobConfirm(int rec_no) {
-		System.out.println("서비스");
+		System.out.println("�꽌鍮꾩뒪");
 		return jobDao.deleteJob(rec_no);
 	}
 	
