@@ -50,13 +50,19 @@
 	</update>
 	
 	<select id="selectList">
-	SELECT * FROM tbl_resuem WHERE r_u_no = ?
+	SELECT * FROM tbl_resuem WHERE r_u_no = #{r_u_no}
 	</select>
 	
 	<select id="selectDetail">
-	SELECT * FROM tbl_resume WHERE r_u_no = ?
+	SELECT * FROM tbl_resume WHERE r_u_no = #{r_u_no}
 	</select>
-
-
+	
+	<select id="selectResume">
+	SELECT * FROM tbl_resume WHERE r_no=#{r_no}
+	</select>
+	
+	<delete id="deleteResume">
+	DELETE FROM tbl_resume WHERE r_no=#{r_no}
+	</delete>
 
 </mapper> 
