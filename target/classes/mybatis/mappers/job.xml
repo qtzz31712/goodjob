@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.job">
+	<resultMap id="jobResult" type="jobVo">
+        <result property="rec_no" column="rec_no" />   
+        <result property="rec_title" column="rec_title" />
+        <result property="rec_due" column="rec_due" />
+        <result property="rec_num" column="rec_num" />
+        <result property="rec_edu" column="rec_edu" />
+        <result property="rec_age" column="rec_age" />
+        <result property="rec_gender" column="rec_gender" />
+        <result property="rec_loc" column="rec_loc" />
+        <result property="rec_pay" column="rec_pay" />
+        <result property="rec_prd" column="rec_prd" />
+        <result property="rec_day" column="rec_day" />
+        <result property="rec_time" column="rec_time" />
+        <result property="rec_sct" column="rec_sct" />
+        <result property="rec_hrd" column="rec_hrd" />
+        <result property="rec_bnf" column="rec_bnf" />
+        <result property="rec_c_no" column="rec_c_no" />
+        <result property="rec_approval" column="rec_approval" />
+        
+          
+	</resultMap> 
+	
+	<select id="selectAllJob" resultMap="jobResult" parameterType="jobVo">
+      
+         SELECT * FROM tbl_job
+         ORDER BY rec_no DESC
+     
+	</select>
+	
+	<select id="selectRecentJob" resultMap="jobResult" parameterType="jobVo">
+      
+         SELECT * FROM tbl_job
+         ORDER BY rec_no DESC
+         LIMIT 15
+     
+	</select>
+	
+	<select id="selectFilteredJob" resultMap="jobResult" parameterType="jobVo">
+      
+         SELECT * FROM tbl_job
+         
+         <if test="rec_title != null">
+         	WHERE rec_title LIKE CONCAT('%', #{rec_title}, '%')
+         	 or rec_loc LIKE CONCAT('%', #{rec_title}, '%')
+         </if>
+         
+         ORDER BY rec_no DESC
+         
+     
+	</select>
+	
+</mapper>

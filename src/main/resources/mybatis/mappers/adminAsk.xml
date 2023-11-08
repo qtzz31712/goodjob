@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+   
+<mapper namespace="mapper.ask">
+	<resultMap id="askResult" type="askVo">
+        <result property="a_part" column="a_part" />
+        <result property="a_article" column="a_article" />
+        <result property="a_email" column="a_email" />
+        <result property="a_phone" column="a_phone" />
+        <result property="a_file" column="a_file" />
+        <result property="a_rep_date" column="a_rep_date" />
+        <result property="a_rep_article" column="a_rep_article" />
+        <result property="a_u_no" column="a_u_no" />     
+          
+        
+	</resultMap> 
+
+	<select id="selectNo" resultMap="askResult" parameterType="askVo">
+      <![CDATA[
+         SELECT * FROM tbl_ask where a_no= #{a_no}	 	
+      ]]>
+	</select>
+	 
+	 <!-- 
+	<select id="selectAdmin" resultMap="adminMemResult" parameterType="String">
+      <![CDATA[
+         SELECT * FROM tbl_admin_member WHERE a_m_id = #{a_m_id}	 	
+      ]]>
+	</select>
+	 -->
+
+	<insert id="insertIntoAsk"  parameterType="askVo">
+		INSERT INTO tbl_ask(a_part, a_article, a_email, a_phone, a_file, a_rep_date, a_rep_article, a_u_no, a_u_type)
+		VALUES (#{a_part}, #{a_article}, #{a_email}, #{a_phone}, #{a_file}, now(), now(), #{a_u_no}, #{a_u_type})
+	</insert>
+	
+	<select id="selectAllList" resultMap="askResult">
+      <![CDATA[
+         SELECT * FROM tbl_ask ORDER BY a_rep_article ASC	 	
+      ]]>
+	</select>
+	<!--  <![CDATA[
+	
+		
+	
+	 ]]> -->
+	<update id="updateAsk" parameterType="askVo">
+	<![CDATA[
+	
+	 UPDATE tbl_ask SET a_part = #{a_part}, a_article = #{a_article}, a_email = #{a_email}, a_phone = #{a_phone}, a_file = #{a_file} WHERE a_no = #{a_no}
+	
+	 ]]>
+	
+	</update>
+	
+	<delete id="deleteAsk" parameterType="askVo">
+	<![CDATA[
+		DELETE FROM tbl_ask WHERE a_no = #{a_no}
+	]]>
+	
+	</delete>
+		
+</mapper>

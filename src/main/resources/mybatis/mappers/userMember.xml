@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.userMember">
+	<resultMap id="userMemResult" type="userMemberVo">
+		<result property="u_no" column="u_no" />
+       
+        <result property="u_id" column="u_id" />
+        <result property="u_pw" column="u_pw" />
+        <result property="u_name" column="u_name" />
+        <result property="u_rn" column="u_rn" />
+        <result property="u_email" column="u_email" />
+        <result property="u_addr" column="u_addr" />
+        <result property="u_ph" column="u_ph" />
+        <result property="u_bd" column="u_bd" />
+        <result property="u_gender" column="u_gender" />
+        <result property="u_focus_com" column="u_focus_com" />
+        
+       
+	</resultMap> 
+
+	
+ 	<!-- <select id="selectAdmins" resultMap="adminMemResult">
+      <![CDATA[
+         SELECT * FROM tbl_admin_member ORDER BY a_m_name ASC	 	
+      ]]>
+	</select>
+	
+	<select id="selectAdmin" resultMap="adminMemResult" parameterType="String">
+      <![CDATA[
+         SELECT * FROM tbl_admin_member WHERE a_m_id = #{a_m_id}	 	
+      ]]>
+	</select>
+	
+	<select id="selectAdminFind" resultMap="adminMemResult" parameterType="hashmap">
+      
+         SELECT * FROM tbl_admin_member WHERE a_m_id = #{a_m_id} and a_m_name=#{a_m_name}and a_m_mail=#{a_m_mail}
+     
+	</select>
+ -->
+ 	<select id="idCheck" resultType="int" parameterType="String">
+        SELECT Count(*) FROM tbl_user WHERE u_id = #{a_m_id}	 	
+	</select>
+	
+	<insert id="insertUserAccount"  parameterType="userMemberVo">
+		INSERT INTO tbl_user(
+		
+		u_id, u_pw, u_name, u_rn, u_email, u_addr, u_ph, u_bd, u_gender, u_focus_com 
+		)
+		VALUES (
+		
+		 #{u_id}, #{u_pw}, #{u_name}, #{u_rn}, #{u_email}, #{u_addr}, #{u_ph}, #{u_bd}, #{u_gender}, #{u_focus_com}
+		)
+	</insert> 
+	
+	
+</mapper>

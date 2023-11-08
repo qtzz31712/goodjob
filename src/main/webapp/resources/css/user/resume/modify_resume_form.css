@@ -1,0 +1,32 @@
+@charset "EUC-KR";
+
+
+.modify_resume_form {
+display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+.button_wrap :nth-child(1) {
+	height: 60px;
+    width: 150px;
+    border: none;
+    background-color: orangered;
+    color: white;
+}
+
+.button_wrap :nth-child(2) {
+    text-align: center;
+    color: black;
+    background-color: ivory;
+    height: 60px;
+    width: 150px;
+    border: none;
+    
+    line-height: 60px;
+    
+}

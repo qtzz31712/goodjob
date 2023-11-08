@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+
+.job_list_title {
+	display: flex;
+    align-items: center;
+}
+
+.job_list_title > a {
+	margin-left: 50px
+}
+
+.job_list table {
+	width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border: 1px solid #e8e8e8;
+}
+
+.job_list thead {
+	font-size: large;
+    background-color: #999;
+
+}
+
+#section_wrap {
+    margin: auto 160px;
+    
+}
+
+.summary {
+	padding: 28px 40px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.summary .contents {
+	display: flex;
+	justify-content: space-between;
+}
+
+.summary .contents > div {
+	display: flex;
+    flex-direction: column;
+}
+
+.summary .contents > div .small {
+	font-size: 13px;
+	color: #6a6a6a;
+}
+
+.summary .contents > div .big {
+	font-size: 18px;
+	color: #171717;
+}
+
+.rec_condition {
+	padding: 50px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.rec_condition .contents {
+	display: flex;
+}
+
+.rec_condition .contents > div {
+	width: 50%;
+}
+
+.working_condition {
+	padding: 50px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+
+.working_condition .contents {
+	display: flex;
+}
+
+.working_condition .contents > div {
+	width: 50%;
+}
+
+.button_box {
+	text-align: center;
+	margin: 50px;
+}
+
+.button_box button {
+	padding: 40px 80px;
+    border-radius: 10px;
+    background: #FF501B;
+    color: white;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    
+}
