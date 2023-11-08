@@ -1,0 +1,101 @@
+.resume_form {
+max-width: 1200px;
+    text-align: left;
+    width: 60%;
+    
+    font-size: 14px;
+}
+
+.resume_form h3 {
+	text-align: left;
+	border-bottom: 1px solid black;
+	font-size: 28px;
+	padding-bottom: 20px;
+}
+
+.resume_form h4 {
+	text-align: left;
+	border-bottom: 1px solid #bdbdbd;
+	font-size: 18px;
+	padding-bottom: 20px;
+}
+
+.resume_form select {
+	width: 200px;
+	border-radius: 5px;
+	font-size: 14px;
+	height: 30px;
+	margin-top: 22px;
+}
+
+.resume_form input {
+	height: 30px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.resume_form .r_career_option {
+	height: 14px;
+	border-radius: 5px;
+}
+
+.resume_form .r_career_date {
+margin: auto 10px;
+    
+    text-align: right;
+    height: 14px;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 14px;
+    
+}
+
+.r_title {
+	width: 80%;
+	height: 40px;
+}
+
+.r_edu_wrap {
+	width: 50%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.r_edu_wrap h4 {
+	border-bottom: none;
+	margin-right: 30px;
+}
+
+.career_wrap {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.r_career_date_wrap {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.r_des {
+	width: 95%;
+	height: 300px;
+	font-size: 14px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.button_wrap {
+border-top: 1px solid #000;
+    padding-top: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+

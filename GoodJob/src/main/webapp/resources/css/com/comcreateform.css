@@ -1,0 +1,71 @@
+@charset "EUC-KR";
+
+h3 {
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 40px 0;
+}
+
+* {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #2e2e2e;
+    font-family: Pretendard Variable, -apple-system, BlinkMacSystemFont,
+        Apple SD Gothic Neo, Malgun Gothic, arial, sans-serif
+}
+
+input {
+
+    width: 500px;
+    height: 4rem;
+    font-size: 1.0625rem;
+
+    line-height: 147.6%;
+
+
+}
+
+select {
+    width: 500px;
+    height: 4rem;
+    font-size: 1.0625rem;
+
+    line-height: 147.6%;
+
+
+
+}
+
+.formbox>div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.formbox>div input,
+select {
+    flex: 0.3;
+}
+
+.formbox>div p {
+    flex: 0.1;
+}
+
+.okbtn {
+    width: 150px;
+    background-color: #ff501b;
+    color: white;
+    font-weight: 800;
+    border: none;
+    margin: 40px 0;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 800;
+}

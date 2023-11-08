@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.resume">
+
+	<resultMap id="resumeResult" type="resumeVo">
+		<result property="r_no" column="r_no" />
+		<result property="r_title" column="r_title" />
+		<result property="r_edu" column="r_edu" />
+		<result property="r_career" column="r_career" />
+		<result property="r_career_date" column="r_career_date" />
+		<result property="r_mod_date" column="r_mod_date" />
+		<result property="r_hope_loc" column="r_hope_loc" />
+		<result property="r_hope_sct" column="r_hope_sct" />
+		<result property="r_hope_hrd" column="r_hope_hrd" />
+		<result property="r_hope_prd" column="r_hope_prd" />
+		<result property="r_hope_day" column="r_hope_day" />
+		<result property="r_hope_time" column="r_hope_time" />
+		<result property="r_hope_pay" column="r_hope_pay" />
+		<result property="r_des" column="r_des" />
+		<result property="r_u_no" column="r_u_no" />
+	</resultMap>
+
+	<insert id="insertNewResume" parameterType="resumeVo">
+		INSERT INTO
+		tbl_resume ( r_title, r_edu, r_career, r_career_date, r_mod_date,
+		r_hope_loc,
+		r_hope_sct, r_hope_prd, r_hope_day, r_hope_time,
+		r_hope_pay, r_des,
+		r_u_no)
+		VALUES ( #{r_title}, #{r_edu}, #{r_career},
+		#{r_career_date}, NOW(), #{r_hope_loc},
+		#{r_hope_sct}, #{r_hope_prd},
+		#{r_hope_day}, #{r_hope_time}, #{r_hope_pay}, #{r_des},
+		#{r_u_no})
+	</insert>
+
+	<select id="selectAllList" parameterType="resumeVo">
+		SELECT * FROM
+		tbl_resume
+	</select>
+
+	<update id="updateResume" parameterType="resumeVo">
+		UPDATE tbl_resume SET
+		r_title=#{r_title}, r_edu=#{r_edu}, r_career=#{r_career}, r_career_date=#{r_career_date}
+	</update>
+
+
+
+</mapper> 

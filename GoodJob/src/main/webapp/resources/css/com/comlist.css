@@ -1,0 +1,66 @@
+html {
+    background-color: none;
+}
+
+a {
+    color: #171717;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    color: #171717;
+}
+
+h3 {
+    text-align: center;
+    padding: 50px;
+    border-bottom: 1px solid;
+}
+
+.myrecruit_List {
+    width: 1000px;
+    margin: 0 auto;
+    display: grid;
+
+}
+
+thead {
+    text-align: center;
+}
+
+th {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+td {
+    text-align: center;
+    display: table-cell;
+    vertical-align: inherit;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+button {
+    display: contents;
+    position: absolute;
+    top: 50%;
+    background-color: #0a0a23;
+    /* color: #fff; */
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 30px;
+    min-width: 120px;
+}
+
+#section_wrap {
+    background-color: #ffffff;
+    padding-bottom: 300px;
+    border-top: 1px solid #ddd;
+}
+
+table {
+    padding-top: 30px;
+}

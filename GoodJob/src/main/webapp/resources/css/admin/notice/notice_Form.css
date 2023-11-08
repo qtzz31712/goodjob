@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+	  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto; /* 테이블을 화면 가운데 정렬 */	
+}
+
+h1 {
+	    display: block;
+  
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+      color: #171717;
+    
+}
+
+ textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
