@@ -31,6 +31,8 @@
 				&& (form.r_career_date.value == '' || form.r_career_date.value === '0')) {
 			alert('경력기간을 작성하세요');
 			form.r_career_date.focus();
+		} else if (form.r_career.value == '신입') {
+			form.r_career.value = 0;
 		} else if (form.r_hope_loc.value == '') {
 			alert('희망 근무지를 선택하세요');
 			form.r_hope_loc.focus();
@@ -79,12 +81,11 @@
 
 		<form action="<c:url value='/resume/modifyResumeConfirm'/>"
 			name="modify_resume_form" method="post" class="resume_form">
-						<input type="hidden" name="r_u_no"
-				value="${loginedUserMemberVo.u_no} " />
-				<input type="hidden" name="r_no" value="${resumeVo.r_no }">
+			<input type="hidden" name="r_u_no"
+				value="${loginedUserMemberVo.u_no} " /> <input type="hidden"
+				name="r_no" value="${resumeVo.r_no }">
 			<h3>이력서 제목</h3>
-				 <input type="text"
-				placeholder="이력서 제목을 입력해주세요" name="r_title"
+			<input type="text" placeholder="이력서 제목을 입력해주세요" name="r_title"
 				value="${resumeVo.r_title }" class="r_title">
 			<h3>학력 사항</h3>
 			<div class="r_edu_wrap">
@@ -111,12 +112,15 @@
 			<h4>경력구분</h4>
 
 			<div class="career_wrap">
-				<input type="radio" name="r_career" value="신입" ${resumeVo.r_career == '신입' ? 'checked' : ''}
+				<input type="radio" name="r_career" value="신입"
+					${resumeVo.r_career == '신입' ? 'checked' : ''}
 					class="r_career_option new">신입 <input type="radio"
-					name="r_career" value="경력" ${resumeVo.r_career == '경력' ? 'checked' : ''}class="r_career_option old">경력
+					name="r_career" value="경력"
+					${resumeVo.r_career == '경력' ? 'checked' : ''}
+					class="r_career_option old">경력
 				<div class="r_career_date_wrap">
-					<input type="number" name="r_career_date" value="${resumeVo.r_career_date}"
-						class="r_career_date">
+					<input type="number" name="r_career_date"
+						value="${resumeVo.r_career_date}" class="r_career_date">
 					<p id="monthsText">개월</p>
 				</div>
 			</div>
@@ -242,7 +246,7 @@
 			<h4>자기소개</h4>
 			<textarea name="r_des" placeholder="자기소개서를 작성해주세요(최대3000자)"
 				class="r_des">${resumeVo.r_des}</textarea>
-			
+
 			<div class="button_wrap">
 				<input type="button" value="수정하기" onclick="modifyResumeForm();" />
 				<c:url value="/resume/resume_list_ajax" var="list_url">
