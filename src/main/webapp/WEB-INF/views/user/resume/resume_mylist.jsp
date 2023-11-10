@@ -2,11 +2,13 @@
     pageEncoding="EUC-KR"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
-
+			
 <table class="type08" border="1">
 				<c:if test="${empty resumeVos }">
 					<div class="empty_word">작성한 이력서가 없습니다.</div>
 				</c:if>
+			
+
 
 			<thead>
 				<tr class="index">

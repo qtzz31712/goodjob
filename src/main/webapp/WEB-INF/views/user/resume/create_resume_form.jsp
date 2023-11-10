@@ -13,56 +13,56 @@
 
 
 <script type="text/javascript">
-	function createResumeForm() {
-		console.log('createResumeForm() CALLED!!');
+    function createResumeForm() {
+        console.log('createResumeForm() CALLED!!');
 
-		let form = document.forms.create_resume_form;
+        let form = document.forms.create_resume_form;
 
-		if (form.r_title.value == '') {
-			alert('이력서 제목을 작성하세요');
-			form.r_title.focus();
-		} else if (form.r_edu.value == '') {
-			alert('학력사항을 선택하세요');
-			form.r_edu.focus();
-		} else if (form.r_career.value == '') {
-			alert('경력사항을 선택하세요');
-			form.r_career.focus();
-		} else if (form.r_career.value == '경력'
-				&& (form.r_career_date.value == '' || form.r_career_date.value == '0')) {
-			alert('경력기간을 작성하세요');
-			form.r_career_date.focus();
-		} else if (form.r_career.value == '신입') {
-			form.r_career_date.value = 0;
-		} else if (form.r_hope_loc.value == '') {
-			alert('희망 근무지를 선택하세요');
-			form.r_hope_loc.focus();
-		} else if (form.r_hope_sct.value == '') {
-			alert('희망 직종을 선택하세요');
-			form.r_hope_sct.focus();
-		} else if (form.r_hope_prd.value == '') {
-			alert('희망 근무기간을 선택하세요');
-			form.r_hope_prd.focus();
-		} else if (form.r_hope_day.value == '') {
-			alert('희망 근무요일을 선택하세요');
-			form.r_hope_day.focus();
-		} else if (form.r_hope_time.value == '') {
-			alert('희망 근무시간을 선택하세요');
-			form.r_hope_time.focus();
-		} else if (form.r_hope_hrd.value == '') {
-			alert('희망 급여형태를 선택하세요');
-			form.r_hope_hrd.focus();
-		} else if (form.r_hope_pay.value == '') {
-			alert('희망 급여를 작성하세요');
-			form.r_hope_pay.focus();
-		} else if (form.r_des.value == '') {
-			alert('자기소개를 작성하세요');
-			form.r_des.focus();
-		} else {
-				if (confirm('이력서 작성을 완료하시겠습니까?')) {
-					form.submit();
-				}
-			}
-		}
+        if (form.r_title.value == '') {
+            alert('이력서 제목을 작성하세요');
+            form.r_title.focus();
+        } else if (form.r_edu.value == '') {
+            alert('학력사항을 선택하세요');
+            form.r_edu.focus();
+        } else if (form.r_career.value == '') {
+            alert('경력사항을 선택하세요');
+            form.r_career.focus();
+        } else if (form.r_career.value == '경력' && (form.r_career_date.value == '' || form.r_career_date.value == '0')) {
+            alert('경력기간을 작성하세요');
+            form.r_career_date.focus();
+        } else if (form.r_hope_loc.value == '') {
+            alert('희망 근무지를 선택하세요');
+            form.r_hope_loc.focus();
+        } else if (form.r_hope_sct.value == '') {
+            alert('희망 직종을 선택하세요');
+            form.r_hope_sct.focus();
+        } else if (form.r_hope_prd.value == '') {
+            alert('희망 근무기간을 선택하세요');
+            form.r_hope_prd.focus();
+        } else if (form.r_hope_day.value == '') {
+            alert('희망 근무요일을 선택하세요');
+            form.r_hope_day.focus();
+        } else if (form.r_hope_time.value == '') {
+            alert('희망 근무시간을 선택하세요');
+            form.r_hope_time.focus();
+        } else if (form.r_hope_hrd.value == '') {
+            alert('희망 급여형태를 선택하세요');
+            form.r_hope_hrd.focus();
+        } else if (form.r_hope_pay.value == '') {
+            alert('희망 급여를 작성하세요');
+            form.r_hope_pay.focus();
+        } else if (form.r_des.value == '') {
+            alert('자기소개를 작성하세요');
+            form.r_des.focus();
+        } else {
+            if (confirm('이력서 작성을 완료하시겠습니까?')) {
+                if (form.r_career.value == '신입') {
+                    form.r_career_date.value = 0;
+                }
+                form.submit();
+            }
+        }
+    }
 </script>
 
 
