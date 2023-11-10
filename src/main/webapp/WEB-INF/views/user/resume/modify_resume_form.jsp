@@ -32,7 +32,7 @@
 			alert('경력기간을 작성하세요');
 			form.r_career_date.focus();
 		} else if (form.r_career.value == '신입') {
-			form.r_career.value = 0;
+			form.r_career_date.value = 0;
 		} else if (form.r_hope_loc.value == '') {
 			alert('희망 근무지를 선택하세요');
 			form.r_hope_loc.focus();
